@@ -1,0 +1,52 @@
+{
+  "name": "lambda-logger",
+  "version": "0.0.1",
+  "description": "📝 Yet another logger",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check --watch",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:js": "rollup -c",
+    "build": "npm run build:types && npm run build:js",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts src/",
+    "release": "sh scripts/release.sh",
+    "deploy:demo": "sh scripts/deploy.sh"
+  },
+  "keywords": [
+    "logger"
+  ],
+  "author": "汪東陽 EastSun5566",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EastSun5566/lambda-logger"
+  },
+  "homepage": "https://github.com/EastSun5566/lambda-logger",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-typescript": "^7.7.2",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
+    "@typescript-eslint/eslint-plugin": "^2.5.0",
+    "@typescript-eslint/parser": "^2.5.0",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.1.0",
+    "rollup": "^1.25.2",
+    "rollup-plugin-terser": "^5.1.2",
+    "typescript": "^3.7.4"
+  }
+}
