@@ -49,17 +49,23 @@ export class Logger {
   debug(...params: unknown[]): void {
     if (process.env.NODE_ENV === 'production') return;
 
+    const { DEBUG } = LogLevel;
+
     this.log(
-      LogLevel.DEBUG,
-      `${Color.GREEN} ${LogLevel.DEBUG.toUpperCase()}`,
+      DEBUG,
+      `${Color.GREEN}`,
+      `[${DEBUG.toUpperCase()}]`,
       ...params,
     );
   }
 
   info(...params: unknown[]): void {
+    const { INFO } = LogLevel;
+
     this.log(
-      LogLevel.INFO,
-      `${Color.GREEN} ${LogLevel.INFO.toUpperCase()}`,
+      INFO,
+      `${Color.GREEN}`,
+      `[${INFO.toUpperCase()}]`,
       ...params,
     );
   }
@@ -69,7 +75,8 @@ export class Logger {
 
     this.log(
       WARN,
-      `${Color.YELLOW} ${WARN.toUpperCase()}`,
+      `${Color.YELLOW}`,
+      `[${WARN.toUpperCase()}]`,
       ...params,
     );
   }
@@ -79,8 +86,8 @@ export class Logger {
 
     this.log(
       ERROR,
-      `${Color.RED} 
-      ${ERROR.toUpperCase()}`,
+      `${Color.RED}`,
+      `[${ERROR.toUpperCase()}]`,
       ...params,
     );
   }
