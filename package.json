@@ -14,8 +14,7 @@
     "build:js": "rollup -c",
     "build": "npm run build:types && npm run build:js",
     "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts src/",
-    "release": "sh scripts/release.sh",
-    "deploy:demo": "sh scripts/deploy.sh"
+    "release": "sh scripts/release.sh"
   },
   "keywords": [
     "logger"
