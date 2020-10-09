@@ -7,6 +7,7 @@ enum LogLevel {
 }
 
 enum Color {
+  RESET = '\x1b[0m',
   RED = '\x1b[31m',
   GREEN = '\x1b[32m',
   BLUE = '\x1b[34m',
@@ -50,44 +51,52 @@ export class Logger {
     if (process.env.NODE_ENV === 'production') return;
 
     const { DEBUG } = LogLevel;
+    const { GREEN, RESET } = Color;
 
     this.log(
       DEBUG,
-      `${Color.GREEN}`,
+      `${GREEN}`,
       `[${DEBUG.toUpperCase()}]`,
+      `${RESET}`,
       ...params,
     );
   }
 
   info(...params: unknown[]): void {
     const { INFO } = LogLevel;
+    const { GREEN, RESET } = Color;
 
     this.log(
       INFO,
-      `${Color.GREEN}`,
+      `${GREEN}`,
       `[${INFO.toUpperCase()}]`,
+      `${RESET}`,
       ...params,
     );
   }
 
   warn(...params: unknown[]): void {
     const { WARN } = LogLevel;
+    const { YELLOW, RESET } = Color;
 
     this.log(
       WARN,
-      `${Color.YELLOW}`,
+      `${YELLOW}`,
       `[${WARN.toUpperCase()}]`,
+      `${RESET}`,
       ...params,
     );
   }
 
   error(...params: unknown[]): void {
     const { ERROR } = LogLevel;
+    const { RED, RESET } = Color;
 
     this.log(
       ERROR,
-      `${Color.RED}`,
+      `${RED}`,
       `[${ERROR.toUpperCase()}]`,
+      `${RESET}`,
       ...params,
     );
   }
