@@ -1,5 +1,5 @@
 {
-  "name": "lambda-logger",
+  "name": "lambda-lite-logger",
   "version": "0.0.1",
   "description": "📝 Yet another logger",
   "main": "dist/index.js",

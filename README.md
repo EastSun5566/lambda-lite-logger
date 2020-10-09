@@ -1,4 +1,4 @@
-# Lambda logger
+# Lambda lite logger
 
 > 📝 Yet another logger for Lambda
 
@@ -11,7 +11,7 @@ I just want to pretty print any nest object param from log..., nothing complex.
 ### Basic
 
 ```ts
-import { Logger } from "lambda-logger";
+import { Logger } from "lambda--lite-logger";
 
 const logger = new Logger();
 
