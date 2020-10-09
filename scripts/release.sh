@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# check out & sync master
-git checkout master
+# check out & sync main
+git checkout main
 git pull
 
 npm run build
