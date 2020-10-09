@@ -1,6 +1,6 @@
 {
   "name": "lambda-lite-logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "📝 Yet another logger",
   "main": "dist/index.js",
   "types": "dist/types/index.d.ts",
