@@ -23,9 +23,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/EastSun5566/lambda-logger"
+    "url": "https://github.com/EastSun5566/lambda-lite-logger"
   },
-  "homepage": "https://github.com/EastSun5566/lambda-logger",
+  "homepage": "https://github.com/EastSun5566/lambda-lite-logger",
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
