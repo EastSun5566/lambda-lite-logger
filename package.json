@@ -17,7 +17,9 @@
     "release": "sh scripts/release.sh"
   },
   "keywords": [
-    "logger"
+    "lambda",
+    "logger",
+    "pretty print"
   ],
   "author": "汪東陽 EastSun5566",
   "license": "MIT",
