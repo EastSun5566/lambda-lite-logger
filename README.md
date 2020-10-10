@@ -4,12 +4,12 @@
 
 ## Why
 
-I just want to pretty print any nest object param from log..., nothing complex.
+I just want to pretty print any nest object param from log with some color..., nothing fancy.
 
 ## installation
 
 ```sh
-npm i lambda--lite-logger
+npm i lambda-lite-logger
 ```
 
 ## Usage
@@ -46,4 +46,6 @@ const logger = new Logger({
 logger.debug("Only log process.env.NODE_ENV is not production"); // [DEBUG] ...
 logger.warn("Warning"); // [WARN] warning
 logger.error("Oh no"); // [ERROR] Oh no
+
+logger.log("info", "low level API, just equal logger.info"); // [INFO] ...
 ```
