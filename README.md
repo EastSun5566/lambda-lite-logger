@@ -39,8 +39,8 @@ logger.info("some data", { a: [{ b: 1, c: { d: 2 } }] });
 
 ```ts
 const logger = new Logger({
-  // prettyPrint: false, turn off prettyPrint, default is true
-  space: 4, // indent by 4 space, , default is true
+  prettyPrint: false, // turn off prettyPrint, default is true
+  space: 4, // prettyPrint indent by 4 space, , default is 2
 });
 
 logger.debug("Only log process.env.NODE_ENV is not production"); // [DEBUG] ...
