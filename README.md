@@ -1,5 +1,9 @@
 # Lambda lite logger
 
+[![NPM Version](https://img.shields.io/npm/v/lambda-lite-logger.svg?style=for-the-badge)](https://www.npmjs.com/package/lambda-lite-logger)
+[![NPM Downloads](https://img.shields.io/npm/dt/lambda-lite-logger.svg?style=for-the-badge)](https://www.npmjs.com/package/lambda-lite-logger)
+[![License](https://img.shields.io/github/license/EastSun5566/lambda-lite-logger.svg?style=for-the-badge)](https://www.npmjs.com/package/lambda-lite-logger)
+
 > 📝 Yet another logger for Lambda
 
 ## Why
