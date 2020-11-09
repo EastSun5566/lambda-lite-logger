@@ -10,7 +10,7 @@
 
 I just want to pretty print any nest object param from log with some color..., nothing fancy.
 
-## installation
+## Installation
 
 ```sh
 npm i lambda-lite-logger

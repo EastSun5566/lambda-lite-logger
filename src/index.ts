@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import { parse, stringify } from 'flatted';
+
 enum LogLevel {
   INFO = 'info',
   WARN = 'warn',
@@ -10,13 +12,13 @@ enum Color {
   RESET = '\x1b[0m',
   RED = '\x1b[31m',
   GREEN = '\x1b[32m',
-  BLUE = '\x1b[34m',
   YELLOW = '\x1b[33m',
 }
 
 interface Options {
   prettyPrint?: boolean;
   space?: number;
+
 }
 
 export class Logger {
@@ -40,7 +42,7 @@ export class Logger {
       ...(prettyPrint
         ? params.map((param) => (
           Logger.isObject(param)
-            ? JSON.stringify(param, null, space)
+            ? JSON.stringify(parse(stringify(param)), null, space)
             : param
         ))
         : params),
