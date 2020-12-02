@@ -24,10 +24,7 @@ export default {
     commonjs(),
     babel({
       extensions,
-      presets: [
-        ['@babel/preset-env'],
-        '@babel/typescript'],
-      plugins: ['@babel/proposal-class-properties'],
+      presets: ['@babel/preset-env', '@babel/typescript'],
       babelHelpers: 'bundled',
     }),
     terser(),
