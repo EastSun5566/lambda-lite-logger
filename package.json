@@ -2,10 +2,13 @@
   "name": "lambda-lite-logger",
   "version": "0.0.4",
   "description": "📝 Yet another logger",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.umd.js",
   "types": "dist/types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "type-check": "tsc --noEmit",
@@ -34,21 +37,22 @@
     }
   },
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-typescript": "^7.7.2",
-    "@rollup/plugin-babel": "^5.1.0",
+    "@babel/core": "^7.12.9",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^8.4.0",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
     "@typescript-eslint/parser": "^2.5.0",
     "eslint": "^6.5.1",
-    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.18.2",
     "husky": "^3.1.0",
-    "rollup": "^1.25.2",
-    "rollup-plugin-terser": "^5.1.2",
-    "typescript": "^3.7.4"
+    "rollup": "^2.34.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
     "fast-safe-stringify": "^2.0.7"
