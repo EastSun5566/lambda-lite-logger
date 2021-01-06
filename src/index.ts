@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-// import stringify from 'fast-safe-stringify';
 import { inspect } from 'util';
 
 enum LogLevel {
