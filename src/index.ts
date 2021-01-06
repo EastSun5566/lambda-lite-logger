@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import stringify from 'fast-safe-stringify';
+// import stringify from 'fast-safe-stringify';
+import { inspect } from 'util';
 
 enum LogLevel {
   INFO = 'info',
@@ -17,8 +18,6 @@ enum Color {
 
 interface Options {
   prettyPrint?: boolean;
-  space?: number;
-
 }
 
 const isObject = (param: unknown): param is object => (
@@ -30,7 +29,6 @@ export class Logger {
   constructor(
     public options: Options = {
       prettyPrint: true,
-      space: 2,
     },
   ) {}
 
@@ -38,7 +36,7 @@ export class Logger {
     type: LogLevel,
     ...params: unknown[]
   ): void {
-    const { prettyPrint, space } = this.options;
+    const { prettyPrint } = this.options;
 
     const date = new Date();
     const year = date.getFullYear();
@@ -53,7 +51,7 @@ export class Logger {
       ...(prettyPrint
         ? params.map((param) => (
           isObject(param)
-            ? stringify(param, undefined, space)
+            ? inspect(param, { depth: Infinity, colors: true, compact: false })
             : param
         ))
         : params),
