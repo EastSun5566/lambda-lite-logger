@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { parse, stringify } from 'flatted';
+import { inspect } from 'util';
 
 enum LogLevel {
   INFO = 'info',
@@ -17,18 +17,17 @@ enum Color {
 
 interface Options {
   prettyPrint?: boolean;
-  space?: number;
-
 }
 
-export class Logger {
-  private static isObject = (param: unknown): boolean => param !== null && typeof param === 'object'
+const isObject = (param: unknown): param is object => (
+  param !== null && typeof param === 'object'
+);
 
+export class Logger {
   // eslint-disable-next-line no-useless-constructor
   constructor(
     public options: Options = {
       prettyPrint: true,
-      space: 2,
     },
   ) {}
 
@@ -36,13 +35,22 @@ export class Logger {
     type: LogLevel,
     ...params: unknown[]
   ): void {
-    const { prettyPrint, space } = this.options;
+    const { prettyPrint } = this.options;
+
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
 
     console[type](
+      `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`,
       ...(prettyPrint
         ? params.map((param) => (
-          Logger.isObject(param)
-            ? JSON.stringify(parse(stringify(param)), null, space)
+          isObject(param)
+            ? inspect(param, { depth: Infinity, colors: true, compact: false })
             : param
         ))
         : params),
