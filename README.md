@@ -26,7 +26,7 @@ import { Logger } from "lambda--lite-logger";
 const logger = new Logger();
 
 // Pretty print nest object with 2 space by default
-// [INFO] some data {
+// 2021-1-6 19:31:6 [INFO] some data {
 //   a: [
 //     {
 //       b: 1,
@@ -43,8 +43,7 @@ logger.info("some data", { a: [{ b: 1, c: { d: 2 } }] });
 
 ```ts
 const logger = new Logger({
-  prettyPrint: false, // turn off prettyPrint, default is true
-  space: 4, // prettyPrint indent by 4 space, , default is 2
+  prettyPrint: false, // turn off prettyPrint, defaults to true
 });
 
 logger.debug("Only log process.env.NODE_ENV is not production"); // [DEBUG] ...
