@@ -1,6 +1,7 @@
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import babel from '@rollup/plugin-babel';
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+import nodePolyfills from 'rollup-plugin-node-polyfills';
+import { nodeResolve, DEFAULTS } from '@rollup/plugin-node-resolve';
+import { babel } from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 
 import {
@@ -10,23 +11,48 @@ import {
   name,
 } from './package.json';
 
-const extensions = ['.js', '.ts'];
+/**
+ * @param {string} str
+ */
+const camalize = (str) => str
+  .toLowerCase()
+  .replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase());
 
-export default {
+/**
+ * @type {import('rollup').RollupOptions}
+ */
+const config = {
   input: 'src/index.ts',
   output: [
-    { file: main, format: 'cjs' },
-    { file: module, format: 'es' },
-    { name, file: browser, format: 'umd' },
+    {
+      file: main,
+      format: 'cjs',
+      exports: 'named',
+      sourcemap: true,
+    },
+    {
+      file: module,
+      format: 'es',
+      sourcemap: true,
+    },
+    {
+      name: camalize(name),
+      file: browser,
+      format: 'umd',
+      exports: 'named',
+      sourcemap: true,
+    },
   ],
   plugins: [
-    nodeResolve({ extensions }),
-    commonjs(),
+    nodePolyfills(),
+    nodeResolve({ extensions: [...DEFAULTS.extensions, '.ts'] }),
     babel({
-      extensions,
-      presets: ['@babel/preset-env', '@babel/typescript'],
+      extensions: [...DEFAULT_EXTENSIONS, '.ts'],
+      presets: ['@babel/env', '@babel/typescript'],
       babelHelpers: 'bundled',
     }),
     terser(),
   ],
 };
+
+export default config;
