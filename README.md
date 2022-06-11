@@ -21,7 +21,7 @@ npm i lambda-lite-logger
 ### Basic
 
 ```ts
-import { Logger } from "lambda--lite-logger";
+import { Logger } from "lambda-lite-logger";
 
 const logger = new Logger();
 
